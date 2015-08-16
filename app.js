@@ -57,12 +57,41 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.post('/signup', function(req,res){
-  console.log(req.body);
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+  console.log("Got a get request = " + req.url);
+});
 
-  // res.redirect('pebblejs://close#success?' + qs.stringify(req.body)));
-  
-  res.redirect('http://www.google.com?' + qs.stringify(req.body));
+app.post('/signup', function(req,res){
+  console.log("Hella wtf");
+  console.log("Request body " + req.body);
+  console.log(qs.stringify(req.body));
+  // res.redirect('pebblejs://close#success?' + qs.stringify(req.body));
+  // res.redirect('http://return_to#' + qs.stringify(req.body));
+  // console.log("URL LOCATION = " + window.url.location);
+  res.redirect('pebblejs://close#' + qs.stringify(req.body));
+
+  // console.log("Original URL = " + req.originalUrl);
+  // console.log("Request body " + req.body);
+  // alert(req.body);
+
+  // var str = JSON.stringify(req);
+  // var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+
+  // console.log("Full URL = " + fullUrl);
+
+
+  // var query = req.url.search.substring(1);
+  // console.log("query = " + query);
+  // var vars = query.split("&");
+  // console.log("vars = " + vars)
+  // var doubleTrouble = vars[0].split("=");
+
+  // var neededURL = doubleTrouble[1];
+  // console.log("needed url = " + neededURL);
+  // // res.redirect('http://www.google.com?' + qs.stringify(req.body));
+
+  // res.redirect(neededURL + '?' + qs.stringify(req.body));
 
 
   // res.render('redirect');
