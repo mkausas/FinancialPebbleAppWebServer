@@ -1,12 +1,9 @@
 extends layout
 
 block content
-	h1= title
-		p Welcome to #{title}
-		p WTFFFF
-		
+	h1 Budget Analyzer		
 		div.loginbox
-			form(name="login", action="/login", method="post")
+			form(name="login", action="/signup", method="post")
 				p Start Date
 				select(name='start_month')
 					option(value='1') January
@@ -102,4 +99,8 @@ block content
 					option(value='17') 17
 					option(value='18') 18
 					option(value='19') 19
+
+				br
+				br
+				input(type='submit',value='Submit')
 

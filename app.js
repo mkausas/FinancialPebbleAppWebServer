@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var qs = require('querystring');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -26,11 +27,11 @@ app.use('/', routes);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
 
 // error handlers
 
@@ -55,6 +56,18 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+app.post('/signup', function(req,res){
+  console.log(req.body);
+
+  // res.redirect('pebblejs://close#success?' + qs.stringify(req.body)));
+  
+  res.redirect('http://www.google.com?' + qs.stringify(req.body));
+
+
+  // res.render('redirect');
+  return;
+})
 
 
 module.exports = app;
